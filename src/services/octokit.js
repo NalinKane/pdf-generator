@@ -1,5 +1,5 @@
 const Octokit = require("@octokit/rest");
 
 module.exports = new Octokit({
-  auth: "c09076c22caf523435a406888e892b430794bbac"
+  auth: "81cd559e04a8ce3a0badd4d6069ce1ad811aeb63"
 });
