@@ -1,0 +1,17 @@
+{
+  "name": "pdf-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^16.35.0",
+    "handlebar": "^1.0.0",
+    "inquirer": "^7.0.0",
+    "puppeteer": "^2.0.0"
+  }
+}
