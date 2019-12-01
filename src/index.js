@@ -32,17 +32,13 @@ module.exports = {
 
     const data = {
       colour,
-      title: "A new Brazilian School",
-      date: "05/12/2018",
-      name: "kicia",
-      age: 28,
-      birthdate: "12/07/1990",
-      course: "Computer Science",
-      obs:
-        "Graduated in 2014 by Federal University of Lavras, work with Full-Stack development and E-commerce."
+      username,
+      avatar: gitHubAccount.avatar_url.split("?")[0], // removing &v=4 from url as it was incorrectly read by puppeteer
+      name: gitHubAccount.name
     };
+
     console.log("Please wait, generating a PDF");
-    await generatePdf(data, colour);
+    await generatePdf(data);
     console.log(`Completed! Please open "./out/${username}.pdf" `);
   }
 };

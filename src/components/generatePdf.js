@@ -4,7 +4,8 @@ const puppeteer = require("puppeteer");
 const handlebars = require("handlebars");
 
 module.exports = {
-  generatePdf: async function(data, colour) {
+  generatePdf: async function(data) {
+    console.log("data is ", data);
     var templateHtml = fs.readFileSync(
       path.resolve("./src/templates/template.html"),
       "utf8"
@@ -23,7 +24,7 @@ module.exports = {
       fs.mkdirSync(dir);
     }
 
-    var pdfPath = path.resolve(`./out/${data.name}.pdf`);
+    var pdfPath = path.resolve(`./out/${data.username}.pdf`);
 
     var options = {
       width: "1230px",
@@ -48,7 +49,7 @@ module.exports = {
     var page = await browser.newPage();
 
     await page.goto(`data:text/html;charset=UTF-8,${html}`, {
-      waitUntil: "networkidle0"
+      waitUntil: "networkidle2"
     });
 
     await page.emulateMedia("screen");
