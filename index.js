@@ -30,7 +30,7 @@ async function init() {
   const data = {
     title: "A new Brazilian School",
     date: "05/12/2018",
-    name: "Rodolfo Luis Marcos",
+    name: "kicia",
     age: 28,
     birthdate: "12/07/1990",
     course: "Computer Science",
