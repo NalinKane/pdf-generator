@@ -1,92 +1,279 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Student's profile</title>
-	<head>
-	<style type="text/css">
-		body{
-			width: 1200px;
-			margin: 0;
-			padding: 0px;
-			font-size: 16px;
-			line-height: 24px;
-			font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-			color: rgb(33,33,33);
-		}
-		.report-header{
-			background: rgb(55,39,114);
-			color: rgb(255,255,255);
-			padding: 15px;
-			padding-left: 200px;
-			box-sizing: border-box;
-			display: block;
-			position: relative;
-		}
-		.report-header .logo{
-			position: absolute;
-			top: 40px;
-			left: 15px;
-			width: 150px;
-		}
-		.report-footer{
-			background: rgb(55,39,114);
-			color: rgb(255,255,255);
-			padding: 15px;
-			box-sizing: border-box;
-			display: block;
-			position: relative;
-		}
-		.report-body{
-			width: 70%;
-			display: inline-block;
-			position: relative;
-			padding: 15px;
-			box-sizing: border-box;
-			vertical-align: top;
-		}
-		.report-photo{
-			width: 28%;
-			display: inline-block;
-			position: relative;
-			vertical-align: top;
-			box-sizing: border-box;
-			margin-top: 15px;
-		}
-		.report-photo img{
-			width: 100%;
-		}
-		.report-body .info p{
-			border: rgb(204,204,204) solid 1px;
-			padding: 5px;
-			display: block;
-			position: relative;
-		}
-	</style>
-	<meta charset="utf-8">
-</head>
-<body>
-	<div class="report-header">
-		<img src="https://www.activfirst.co.uk/wp-content/uploads/logo-example.jpg" class="logo">
-		<h3>{{title}}</h3>
-		<p>{{date}}</p>
-	</div>
-	<div class="report-body">
-		<div class="info">
-			<p>Student: {{name}}</p>
-			<p>OEN: {{oen}}</p>
-			<p>Age: {{age}}</p>
-			<p>Birthdate: {{birthdate}}</p>
-			<p>Course: {{course}}</p>
-		</div>
-		<div class="obs">
-			<p>Obs: {{obs}}</p>
-		</div>
-	</div>
-	<div class="report-photo">
-		<img src="https://avatars1.githubusercontent.com/u/16254838?s=460&v=4">
-	</div>
-	<div class="report-footer">
-		A generic Company - All Rights reserved.
-	</div>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      @page {
+        margin: 0;
+      }
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body,
+      .wrapper {
+        height: 100%;
+      }
+      .wrapper {
+        padding-top: 100px;
+      }
+      body {
+        background-color: rgb(255, 255, 255);
+        -webkit-print-color-adjust: exact !important;
+        font-family: "Cabin", sans-serif;
+      }
+
+      .body-green .wrapper {
+        background-color: rbg(230, 225, 195);
+      }
+
+      .body-green .photo-header,
+      .body-green .card {
+        background-color: rgb(193, 199, 44);
+        color: rgb(0, 0, 0);
+      }
+
+      .body-green .photo-header img {
+        border-color: rgb(0, 0, 0);
+      }
+
+      .body-blue .wrapper {
+        background-color: rgb(95, 100, 211);
+      }
+
+      .body-blue .photo-header,
+      .body-blue .card {
+        background-color: rgb(38, 23, 90);
+        color: rgb(255, 255, 255);
+      }
+
+      .body-blue .photo-header img {
+        border-color: rgb(115, 68, 140);
+      }
+
+      .body-pink .wrapper {
+        background-color: rgb(135, 156, 223);
+      }
+      .body-pink .photo-header,
+      .body-pink .card {
+        background-color: rgb(255, 131, 116);
+        color: rgb(255, 255, 255);
+      }
+
+      .body-pink .photo-header img {
+        border-color: rgb(254, 226, 76);
+      }
+
+      .body-red .wrapper {
+        background-color: rgb(222, 153, 103);
+      }
+      .body-red .photo-header,
+      .body-red .card {
+        background-color: rgb(135, 6, 3);
+        color: rgb(255, 255, 255);
+      }
+
+      .body-red .photo-header img {
+        border-color: rgb(255, 255, 255);
+      }
+
+      main {
+        background-color: rgb(233, 237, 238);
+        height: auto;
+        padding-top: 30px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "BioRhyme", serif;
+        margin: 0;
+      }
+      h1 {
+        font-size: 3em;
+      }
+      h2 {
+        font-size: 2.5em;
+      }
+      h3 {
+        font-size: 2em;
+      }
+      h4 {
+        font-size: 1.5em;
+      }
+      h5 {
+        font-size: 1.3em;
+      }
+      h6 {
+        font-size: 1.2em;
+      }
+      .photo-header {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: -50px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px;
+        width: 95%;
+        border-radius: 6px;
+      }
+      .photo-header img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: -75px;
+        border-width: 6px;
+        border-style: solid;
+        /* box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px; */ /* border-radius in circle doesnt seem to work after converting to pdf */
+      }
+      .photo-header h1,
+      .photo-header h2 {
+        width: 100%;
+        text-align: center;
+      }
+      .photo-header h1 {
+        margin-top: 10px;
+      }
+      .links-nav {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 1.1em;
+      }
+      .nav-link {
+        display: inline-block;
+        margin: 5px 10px;
+      }
+      .workExp-date {
+        font-style: italic;
+        font-size: 0.7em;
+        text-align: right;
+        margin-top: 10px;
+      }
+      .container {
+        padding: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 6px;
+        margin: 20px;
+      }
+
+      .col {
+        flex: 1;
+        text-align: center;
+      }
+
+      a,
+      a:hover {
+        text-decoration: none;
+        color: inherit;
+        font-weight: bold;
+      }
+
+      @media print {
+        body {
+          zoom: 0.75;
+        }
+      }
+    </style>
+  </head>
+  <body class="body-{{colour}}">
+    <div class="wrapper">
+      <div class="container">
+        <header class="photo-header">
+          <img
+            src="https://avatars2.githubusercontent.com/u/2518482?v=4%27"
+            width="250"
+            height="250"
+          />
+
+          <h1>Hi!</h1>
+          <h2>My name is slim shady</h2>
+          <h4>Currently at Trilogy Code</h4>
+          <ul class="links-nav">
+            <li class="nav-link">
+              <a href="https://www.google.com" target="blank"
+                >Richmond, Virginia</a
+              >
+            </li>
+            <li class="nav-link">
+              <a href="https://www.github.com">Github</a>
+            </li>
+            <li class="nav-link"><a href="https://www.myblog.com">Blog</a></li>
+          </ul>
+        </header>
+        <main>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h3>I build things and teach people to code</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <h3>Public Repositories</h3>
+                  <h4>123</h4>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <h3>Followers</h3>
+                  <h4>14</h4>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <h3>GitHub Stars</h3>
+                  <h4>10</h4>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <h3>Following</h3>
+                  <h4>8</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

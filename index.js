@@ -6,19 +6,19 @@ const questions = [
   { name: "username", message: "What is your GitHub username?" }
 ];
 
-function askForUsername() {
-  return inquirer.prompt(questions[0]).then(answers => {
-    return answers.username;
-  });
+async function askForUsername() {
+  const { username } = await inquirer.prompt(questions[0]);
+  return username;
 }
 
-function askForColour(username) {
-  return inquirer.prompt([
+async function askForColour(username) {
+  const { colour } = await inquirer.prompt([
     {
-      name: "favColour",
+      name: "colour",
       message: `What is ${username}'s favourite colour?`
     }
   ]);
+  return colour;
 }
 
 async function init() {
@@ -28,6 +28,7 @@ async function init() {
   const colour = await askForColour(gitHubAccount.name.split(" ")[0]);
 
   const data = {
+    colour,
     title: "A new Brazilian School",
     date: "05/12/2018",
     name: "kicia",

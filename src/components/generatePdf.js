@@ -16,6 +16,7 @@ module.exports = {
 
     var options = {
       width: "1230px",
+      height: "1300px",
       headerTemplate: "<p></p>",
       footerTemplate: "<p></p>",
       displayHeaderFooter: false,
@@ -24,6 +25,7 @@ module.exports = {
         bottom: "30px"
       },
       printBackground: true,
+      preferCSSPageSize: true,
       path: pdfPath
     };
 
@@ -37,6 +39,8 @@ module.exports = {
     await page.goto(`data:text/html;charset=UTF-8,${html}`, {
       waitUntil: "networkidle0"
     });
+
+    await page.emulateMedia("screen");
 
     await page.pdf(options);
     await browser.close();
