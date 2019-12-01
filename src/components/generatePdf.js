@@ -5,7 +5,6 @@ const handlebars = require("handlebars");
 
 module.exports = {
   generatePdf: async function(data) {
-    console.log("data is ", data);
     var templateHtml = fs.readFileSync(
       path.resolve("./src/templates/template.html"),
       "utf8"
@@ -28,7 +27,7 @@ module.exports = {
 
     var options = {
       width: "1230px",
-      height: "1300px",
+      height: "1500px",
       headerTemplate: "<p></p>",
       footerTemplate: "<p></p>",
       displayHeaderFooter: false,
