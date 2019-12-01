@@ -14,8 +14,10 @@ async function askForUsername() {
 async function askForColour(username) {
   const { colour } = await inquirer.prompt([
     {
+      type: "list",
       name: "colour",
-      message: `What is ${username}'s favourite colour?`
+      message: `What is ${username}'s favourite colour?`,
+      choices: ["green", "blue", "pink", "red"]
     }
   ]);
   return colour;
