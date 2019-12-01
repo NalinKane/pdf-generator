@@ -16,6 +16,8 @@
 
 ## Usage
 
+![PDF Creator demo](demo/demo.gif)
+
 Go to the root of the project and using your favourite command line tool run:
 
 `node index.js`
