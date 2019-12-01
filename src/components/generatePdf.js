@@ -14,7 +14,7 @@ module.exports = {
     var html = template(data);
 
     /* 
-      Create out directory if it doesn't exists. 
+      Create "out"" directory if it doesn't exists. 
       GitHub won't allow for commiting empty folders. 
       The PDF will be saved here.
     */

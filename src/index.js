@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const { getUser } = require("./services/github");
+const { getUser, getStarCount } = require("./services/github");
 const { generatePdf } = require("./components/generatePdf");
 
 const questions = [
@@ -28,13 +28,16 @@ module.exports = {
     const username = await askForUsername();
     console.log("Please wait, searching for the username...");
     const gitHubAccount = await getUser(username);
+    const stars = await getStarCount();
     const colour = await askForColour(gitHubAccount.name.split(" ")[0]);
 
     const data = {
       colour,
       username,
+      stars,
       avatar: gitHubAccount.avatar_url.split("?")[0], // removing &v=4 from url as it was incorrectly read by puppeteer
-      name: gitHubAccount.name
+      name: gitHubAccount.name,
+      location: gitHubAccount.location
     };
 
     console.log("Please wait, generating a PDF");
