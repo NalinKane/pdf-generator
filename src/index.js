@@ -37,7 +37,13 @@ module.exports = {
       stars,
       avatar: gitHubAccount.avatar_url.split("?")[0], // removing &v=4 from url as it was incorrectly read by puppeteer
       name: gitHubAccount.name,
-      location: gitHubAccount.location
+      location: gitHubAccount.location,
+      blog: gitHubAccount.blog,
+      githubProfile: gitHubAccount.html_url,
+      bio: gitHubAccount.bio,
+      followers: gitHubAccount.followers,
+      following: gitHubAccount.following,
+      publicRepos: gitHubAccount.public_repos
     };
 
     console.log("Please wait, generating a PDF");
