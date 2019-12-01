@@ -12,6 +12,17 @@ module.exports = {
     var template = handlebars.compile(templateHtml);
     var html = template(data);
 
+    /* 
+      Create out directory if it doesn't exists. 
+      GitHub won't allow for commiting empty folders. 
+      The PDF will be saved here.
+    */
+    const dir = "./out";
+
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+
     var pdfPath = path.resolve(`./out/${data.name}.pdf`);
 
     var options = {
