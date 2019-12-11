@@ -10,10 +10,10 @@ module.exports = {
       throw new Error("Username not found", error);
     }
   },
-  getStarCount: async function() {
+  getStarCount: async function(username) {
     try {
       let { data } = await axios.get(
-        "https://api.github.com/users/NalinKane/starred"
+        `https://api.github.com/users/${username}/starred`
       );
       let starCount = 0;
       data.map(repo => (starCount += repo.stargazers_count));

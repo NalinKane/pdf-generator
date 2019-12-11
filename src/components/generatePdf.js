@@ -47,9 +47,12 @@ module.exports = {
 
     var page = await browser.newPage();
 
-    await page.goto(`data:text/html;charset=UTF-8,${html}`, {
-      waitUntil: "networkidle2"
-    });
+    await page.goto(
+      `data:text/html;charset=UTF-8,${encodeURIComponent(html)}`,
+      {
+        waitUntil: "networkidle2"
+      }
+    );
 
     await page.emulateMedia("screen");
 

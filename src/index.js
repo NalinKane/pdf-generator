@@ -28,8 +28,13 @@ module.exports = {
     const username = await askForUsername();
     console.log("Please wait, searching for the username...");
     const gitHubAccount = await getUser(username);
-    const stars = await getStarCount();
-    const colour = await askForColour(gitHubAccount.name.split(" ")[0]);
+    const stars = await getStarCount(username);
+
+    const name =
+      gitHubAccount.name === null || gitHubAccount.name === ""
+        ? username
+        : gitHubAccount.name;
+    const colour = await askForColour(name.split(" ")[0]);
 
     const data = {
       colour,
@@ -41,9 +46,9 @@ module.exports = {
       blog: gitHubAccount.blog,
       githubProfile: gitHubAccount.html_url,
       bio: gitHubAccount.bio,
-      followers: gitHubAccount.followers,
-      following: gitHubAccount.following,
-      publicRepos: gitHubAccount.public_repos
+      followers: gitHubAccount.followers ? gitHubAccount.followers : 0,
+      following: gitHubAccount.following ? gitHubAccount.following : 0,
+      publicRepos: gitHubAccount.public_repos ? gitHubAccount.public_repos : 0
     };
 
     console.log("Please wait, generating a PDF");
